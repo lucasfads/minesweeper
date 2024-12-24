@@ -1,25 +1,48 @@
+:root {
+	--bg-color: #526c9d;
+	--yellow: #ffd302;
+	--yellow-dark: #ffba21;
+	--blue: #1597d5;
+	--blue-dark: #0047ab;
+}
+
 body {
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: bold;
+	background-color: var(--bg-color);
 }
 
 #minesweeper {
-	
+	margin-inline: auto;
+	width:fit-content;
+	display: flex;
+	flex-direction: column;
+	--gap: 4px;
+	gap: var(--gap);
 }
 
 #minesweeper .row {
+	width: auto;
 	display: flex;
+	gap: var(--gap);
 }
 
 #minesweeper .cell {
 	width: 40px;
 	height: 40px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
+	background-color: var(--blue);
+	border-radius: 8px;
+	--border: var(--blue-dark);
+	border-bottom: 3px solid var(--border);
 }
 
-#minesweeper .cell:not(.revealed) {
-	cursor: pointer;
+#minesweeper .cell.revealed {
+	background-color: var(--yellow);
+	--border: var(--yellow-dark);
 }
+

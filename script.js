@@ -208,17 +208,17 @@ class Minesweeper {
 			}
 		})
 
-		// this.boardContainer.addEventListener("contextmenu", (event) => {
-		// 	event.preventDefault();
-		// 	const cell = event.target.closest(".cell");
-		// 	if (cell){
-		// 		if (!this.gameOver)
-		// 		{
-		// 			this.toggleFlag(parseInt(cell.dataset.x), parseInt(cell.dataset.y));
-		// 			this.renderBoard();
-		// 		}
-		// 	}
-		// })
+		this.boardContainer.addEventListener("contextmenu", (event) => {
+			event.preventDefault();
+			const cell = event.target.closest(".cell");
+			if (cell){
+				if (!this.gameOver)
+				{
+					this.toggleFlag(parseInt(cell.dataset.x), parseInt(cell.dataset.y));
+					this.renderBoard();
+				}
+			}
+		})
 	}
 }
 
