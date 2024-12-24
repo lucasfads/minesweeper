@@ -4,6 +4,8 @@
 	--yellow-dark: #ffba21;
 	--blue: #1597d5;
 	--blue-dark: #0047ab;
+	--red: #ea1d22;
+	--red-dark: #660a2f;
 }
 
 body {
@@ -39,10 +41,29 @@ body {
 	border-radius: 8px;
 	--border: var(--blue-dark);
 	border-bottom: 3px solid var(--border);
+	transition: all 0.1s;
+}
+
+#minesweeper .cell:not(.revealed):hover {
+	background-color: var(--blue-dark);
 }
 
 #minesweeper .cell.revealed {
 	background-color: var(--yellow);
 	--border: var(--yellow-dark);
+	cursor: default;
 }
 
+#minesweeper .cell.flag {
+	
+}
+
+#minesweeper .cell.flag svg {
+	color: var(--red);
+	filter: drop-shadow(1px 1px 0px var(--red-dark));
+}
+
+#minesweeper .cell.bomb svg {
+	color: var(--red-dark);
+	filter: drop-shadow(1px 1px 0px var(--blue-dark));
+}

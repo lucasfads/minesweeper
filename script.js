@@ -135,14 +135,20 @@ class Minesweeper {
 				cellElement.dataset.x = x;
 				cellElement.dataset.y = y;
 				if (this.isCellFlagged(x, y))
+				{
+					cellElement.classList.add("flag");
 					cellElement.innerHTML = Minesweeper.FLAG_SVG;
+				}	
 				if (this.isCellRevealed(x, y))
 				{
 					cellElement.classList.add("revealed");
 					cellElement.textContent = this.getCellValue(x, y) || "";
 				}
 				if (this.gameOver && this.isBomb(x, y))
+				{
+					cellElement.classList.add("bomb");
 					cellElement.innerHTML = Minesweeper.BOMB_SVG;
+				}
 				rowElement.appendChild(cellElement);
 				x++;
 			});
