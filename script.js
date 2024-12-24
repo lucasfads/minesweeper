@@ -15,6 +15,7 @@ class Minesweeper {
 		this.board = this.createBoard();
 		this.boardContainer = document.querySelector("#board");
 		this.mineCount = document.querySelector("#mine-count span");
+		this.timer = document.querySelector("#timer span");
 		this.gameOver = false;
 		this.win = false;
 	}
@@ -242,6 +243,17 @@ class Minesweeper {
 				}
 			}
 		})
+
+		let seconds = 0;
+		const timer = setInterval(() => {
+			if (!this.gameOver)
+			{
+				seconds++;
+				this.timer.textContent = seconds;
+			}
+			else
+				clearInterval(timer);
+		}, 1000);
 	}
 }
 

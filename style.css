@@ -45,7 +45,8 @@ footer a {
 	margin-bottom: 16px;
 }
 
-#mine-count {
+#mine-count,
+#timer {
 	color: var(--blue-dark);
 	background-color: white;
 	border-radius: 8px;
