@@ -19,3 +19,7 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
+#minesweeper .cell:not(.revealed) {
+	cursor: pointer;
+}
