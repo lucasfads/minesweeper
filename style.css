@@ -58,6 +58,10 @@ footer a {
 	padding: 8px 16px;
 }
 
+#game-status .face {
+	color: var(--yellow);
+}
+
 #board {
 	margin-inline: auto;
 	width:fit-content;
