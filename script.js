@@ -11,8 +11,10 @@ class Minesweeper {
 		this.rows = rows;
 		this.cols = cols;
 		this.mines = mines;
+		this.flagsPlaced = 0;
 		this.board = this.createBoard();
-		this.boardContainer = document.querySelector("#minesweeper");
+		this.boardContainer = document.querySelector("#board");
+		this.mineCount = document.querySelector("#mine-count span");
 		this.gameOver = false;
 		this.win = false;
 	}
@@ -97,9 +99,16 @@ class Minesweeper {
 
 	toggleFlag (x, y) {
 		if (this.isCellFlagged(x, y))
+		{
+			this.flagsPlaced--;
 			this.setCellUnflagged(x, y);
+		}
 		else if (!this.isCellRevealed(x, y))
+		{
+			this.flagsPlaced++;
 			this.setCellFlagged(x, y);
+		}
+		this.updateMineCount();
 	}
 
 	checkWin () {
@@ -160,6 +169,10 @@ class Minesweeper {
 		});
 	}
 
+	updateMineCount () {
+		this.mineCount.textContent = this.mines-this.flagsPlaced;
+	}
+
 	floodFill (x, y) {
 		const cell = this.board[y][x];
 		if (this.isCellRevealed(x, y))
@@ -198,6 +211,7 @@ class Minesweeper {
 		this.placeMines();
 		this.countAdjecentMines();
 		this.renderBoard();
+		this.updateMineCount();
 
 		this.boardContainer.addEventListener("click", (event) => {
 			if (event.target.classList.contains("cell")){

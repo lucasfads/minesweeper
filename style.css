@@ -37,7 +37,27 @@ footer a {
 	color: var(--blue-dark);
 }
 
-#minesweeper {
+.game-info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+#mine-count {
+	color: var(--blue-dark);
+	background-color: white;
+	border-radius: 8px;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+}
+
+#board {
 	margin-inline: auto;
 	width:fit-content;
 	display: flex;
@@ -46,13 +66,13 @@ footer a {
 	gap: var(--gap);
 }
 
-#minesweeper .row {
+#board .row {
 	width: auto;
 	display: flex;
 	gap: var(--gap);
 }
 
-#minesweeper .cell {
+#board .cell {
 	width: 40px;
 	height: 40px;
 	/* border: 1px solid black; */
@@ -67,26 +87,26 @@ footer a {
 	transition: all 0.1s;
 }
 
-#minesweeper .cell:not(.revealed):hover {
+#board .cell:not(.revealed):hover {
 	background-color: var(--blue-dark);
 }
 
-#minesweeper .cell.revealed {
+#board .cell.revealed {
 	background-color: var(--yellow);
 	--border: var(--yellow-dark);
 	cursor: default;
 }
 
-#minesweeper .cell.flag {
+#board .cell.flag {
 	
 }
 
-#minesweeper .cell.flag svg {
+#board .cell.flag svg {
 	color: var(--red);
 	filter: drop-shadow(1px 1px 0px var(--red-dark));
 }
 
-#minesweeper .cell.bomb svg {
+#board .cell.bomb svg {
 	color: var(--red-dark);
 	filter: drop-shadow(1px 1px 0px var(--blue-dark));
 }
