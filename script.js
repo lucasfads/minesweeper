@@ -139,7 +139,7 @@ class Minesweeper {
 				if (this.isCellRevealed(x, y))
 				{
 					cellElement.classList.add("revealed");
-					cellElement.textContent = this.getCellValue(x, y);
+					cellElement.textContent = this.getCellValue(x, y) || "";
 				}
 				if (this.gameOver && this.isBomb(x, y))
 					cellElement.innerHTML = Minesweeper.BOMB_SVG;
